@@ -1,0 +1,489 @@
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #07120f;
+    color: white;
+}
+
+
+/* =========================
+   3D BACKGROUND
+========================= */
+
+.bg-scene {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            circle at 75% 15%,
+            rgba(36,190,128,.14),
+            transparent 30%
+        ),
+        #07120f;
+}
+
+
+/* SUN */
+
+.sun {
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    right: 8%;
+
+    top: 10%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff4a8 0 20%,
+            #ffc72c 42%,
+            transparent 72%
+        );
+
+    animation: pulse 4s infinite;
+
+}
+
+
+/* ORBIT */
+
+.orbit {
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(74,255,181,.16);
+
+    border-radius: 50%;
+
+}
+
+
+.orbit1 {
+
+    width: 650px;
+
+    height: 650px;
+
+}
+
+
+.orbit2 {
+
+    width: 900px;
+
+    height: 500px;
+
+}
+
+
+/* PLANET */
+
+.planet {
+
+    position: absolute;
+
+    width: 28px;
+
+    height: 28px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #65e6a8,
+            #1d8060
+        );
+
+    animation:
+        orbit 12s linear infinite;
+
+}
+
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee-wrap {
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    background:
+        rgba(26,65,51,.45);
+
+}
+
+
+.marquee {
+
+    display: inline-block;
+
+    padding: 9px;
+
+    animation:
+        marquee 27s linear infinite;
+
+    color: #caffea;
+
+}
+
+
+@keyframes marquee {
+
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 720px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+}
+
+
+.hero h1 {
+
+    font-size: 70px;
+
+    line-height: 1.05;
+
+}
+
+
+.hero h1 span {
+
+    color: #62efad;
+
+}
+
+
+.hero-text {
+
+    color: #a9c8ba;
+
+    font-size: 16px;
+
+}
+
+
+.btn {
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+}
+
+
+.primary {
+
+    background: #54e8a2;
+
+    color: #062016;
+
+}
+
+
+.secondary {
+
+    color: white;
+
+    background: rgba(255,255,255,.04);
+
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card,
+.metric,
+.sensor-card,
+.device {
+
+    background:
+        rgba(10,32,24,.72);
+
+    border:
+        1px solid
+        rgba(98,239,173,.12);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(12px);
+
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.metric-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 14px;
+
+}
+
+
+.metric {
+
+    padding: 20px;
+
+    display: flex;
+
+    gap: 14px;
+
+}
+
+
+.metric h3 {
+
+    font-size: 23px;
+
+}
+
+
+.progress {
+
+    height: 5px;
+
+    background: #19382c;
+
+    border-radius: 5px;
+
+}
+
+
+.progress i {
+
+    display: block;
+
+    height: 100%;
+
+    background: #54e8a2;
+
+}
+
+
+/* =========================
+   SENSOR CARDS
+========================= */
+
+.sensor-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 14px;
+
+}
+
+
+.sensor-card {
+
+    padding: 22px;
+
+}
+
+
+.sensor-card strong {
+
+    display: block;
+
+    font-size: 27px;
+
+    margin: 5px 0;
+
+}
+
+
+.sensor-card.highlight {
+
+    border-color:
+        rgba(98,239,173,.35);
+
+}
+
+
+/* =========================
+   PHOTOS
+========================= */
+
+.photo-row {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 14px;
+
+    margin-top: 20px;
+
+}
+
+
+.photo-card {
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+}
+
+
+.photo-card img {
+
+    width: 100%;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+.photo-card div {
+
+    padding: 15px;
+
+}
+
+
+/* =========================
+   DEVICES
+========================= */
+
+.device-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 14px;
+
+}
+
+
+.device {
+
+    padding: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px) {
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .metric-grid,
+    .sensor-grid,
+    .device-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+}
+
+
+@media(max-width:560px) {
+
+    .metric-grid,
+    .sensor-grid,
+    .device-grid,
+    .photo-row {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .hero h1 {
+
+        font-size: 42px;
+
+    }
+
+}

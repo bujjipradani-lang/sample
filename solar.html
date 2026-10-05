@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Solar Smart Hub 2.0</title>
+
+    <link rel="stylesheet" href="solar.css">
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- BACKGROUND 3D ANIMATION -->
+    <!-- ============================= -->
+
+    <div class="bg-scene">
+
+        <div class="sun"></div>
+
+        <div class="orbit orbit1"></div>
+
+        <div class="orbit orbit2"></div>
+
+        <div class="planet"></div>
+
+        <div class="floating-panel"></div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- HEADER -->
+    <!-- ============================= -->
+
+    <header class="topbar">
+
+        <a href="#home" class="brand">
+
+            <span class="brand-icon">☀</span>
+
+            <span>
+                Solar Smart Hub
+                <b>2.0</b>
+            </span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="#home">Home</a>
+
+            <a href="#dashboard">Dashboard</a>
+
+            <a href="#sensors">Sensors</a>
+
+            <a href="#devices">Devices</a>
+
+            <a href="#api">API</a>
+
+            <a href="#future">Future</a>
+
+        </nav>
+
+
+        <div class="top-actions">
+
+            <button id="themeBtn">
+                ☾
+            </button>
+
+            <button id="langBtn">
+                తెలుగు
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ============================= -->
+    <!-- MARQUEE -->
+    <!-- ============================= -->
+
+    <div class="marquee-wrap">
+
+        <div class="marquee">
+
+            ☀️ SOLAR SMART HUB 2.0
+
+            • LIVE SOLAR MONITORING
+
+            • 🔋 BATTERY
+            <span id="mqBattery">78%</span>
+
+            • ⚡ SOLAR POWER
+            <span id="mqPower">30.7 W</span>
+
+            • 📡 ESP32 ONLINE
+
+            • 🌡️ TEMPERATURE
+            <span id="mqTemp">31.5°C</span>
+
+            • 🌱 CLEAN ENERGY
+
+            • 🚀 FUTURE READY
+
+        </div>
+
+    </div>
+
+
+
+    <main>
+
+
+        <!-- ============================= -->
+        <!-- HERO SECTION -->
+        <!-- ============================= -->
+
+        <section id="home" class="hero section">
+
+            <div class="hero-copy">
+
+                <div class="pill">
+                    IoT • Solar • Sensors • Smart Energy
+                </div>
+
+
+                <h1>
+
+                    Smart Solar Energy
+
+                    <br>
+
+                    <span>
+                        Monitoring & Power Management
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-text">
+
+                    Monitor solar generation, battery status,
+                    voltage, current and temperature in one
+                    modern dashboard.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#dashboard"
+                       class="btn primary">
+
+                        Explore Dashboard →
+
+                    </a>
+
+
+                    <a href="#sensors"
+                       class="btn secondary">
+
+                        View Sensors
+
+                    </a>
+
+                </div>
+
+
+                <div class="hero-stats">
+
+                    <div>
+
+                        <b id="heroPower">
+                            30.7 W
+                        </b>
+
+                        <small>
+                            Solar Power
+                        </small>
+
+                    </div>
+
+
+                    <div>
+
+                        <b>
+                            0.82 kWh
+                        </b>
+
+                        <small>
+                            Today Energy
+                        </small>
+
+                    </div>
+
+
+                    <div>
+
+                        <b id="heroBattery">
+                            78%
+                        </b>
+
+                        <small>
+                            Battery
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+
+
+            <!-- HERO VISUAL -->
+
+            <div class="hero-visual">
+
+                <div class="solar-orb">
+                    ☀
+                </div>
+
+
+                <div class="energy-ring r1"></div>
+
+                <div class="energy-ring r2"></div>
+
+
+                <!-- SOLAR PANEL PHOTO -->
+
+                <div class="panel-card">
+
+                    <img
+                        src="images/solar-panel.png"
+                        alt="Solar Panel"
+                    >
+
+                    <div class="panel-info">
+
+                        <b>
+                            ☀ Solar Panel
+                        </b>
+
+                        <span>
+                            Clean Energy Source
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="floating-card fc1">
+
+                    ⚡
+
+                    <b id="floatVoltage">
+                        18.6 V
+                    </b>
+
+                    <small>
+                        Voltage
+                    </small>
+
+                </div>
+
+
+                <div class="floating-card fc2">
+
+                    🔌
+
+                    <b id="floatCurrent">
+                        1.65 A
+                    </b>
+
+                    <small>
+                        Current
+                    </small>
+
+                </div>
+
+
+                <div class="floating-card fc3">
+
+                    🌡️
+
+                    <b id="floatTemp">
+                        31.5 °C
+                    </b>
+
+                    <small>
+                        Temperature
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================= -->
+        <!-- DASHBOARD -->
+        <!-- ============================= -->
+
+        <section id="dashboard" class="section">
+
+            <div class="section-head">
+
+                <div>
+
+                    <span class="eyebrow">
+                        01 • LIVE OVERVIEW
+                    </span>
+
+                    <h2>
+                        Energy Dashboard
+                    </h2>
+
+                </div>
+
+                <div class="live-dot">
+                    ● LIVE DATA
+                </div>
+
+            </div>
+
+
+            <div class="metric-grid">
+
+
+                <article class="metric">
+
+                    <span class="metric-icon">
+                        ☀️
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Solar Generation
+                        </small>
+
+                        <h3 id="powerValue">
+                            30.7 W
+                        </h3>
+
+                        <em>
+                            Voltage × Current
+                        </em>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="metric">
+
+                    <span class="metric-icon">
+                        🔋
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Battery Level
+                        </small>
+
+                        <h3 id="batteryValue">
+                            78%
+                        </h3>
+
+                        <div class="progress">
+
+                            <i id="batteryBar"
+                               style="width:78%">
+                            </i>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="metric">
+
+                    <span class="metric-icon">
+                        🏠
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Home Consumption
+                        </small>
+
+                        <h3 id="loadValue">
+                            412 W
+                        </h3>
+
+                        <em>
+                            4 active devices
+                        </em>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="metric">
+
+                    <span class="metric-icon">
+                        🌐
+                    </span>
+
+                    <div>
+
+                        <small>
+                            System Status
+                        </small>
+
+                        <h3 class="green">
+                            ONLINE
+                        </h3>
+
+                        <em>
+                            ESP32 • Wi-Fi connected
+                        </em>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- CHART -->
+
+            <div class="dashboard-grid">
+
+                <article class="card chart-card">
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <h3>
+                                Solar Power Trend
+                            </h3>
+
+                            <p>
+                                Live sensor telemetry
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <canvas
+                        id="powerChart"
+                        height="240">
+                    </canvas>
+
+                </article>
+
+
+
+                <!-- POWER FLOW -->
+
+                <article class="card">
+
+                    <h3>
+                        Smart Power Flow
+                    </h3>
+
+                    <div class="flow">
+
+                        <div class="flow-node">
+
+                            ☀
+
+                            <b>
+                                Solar Panel
+                            </b>
+
+                            <small>
+                                Generation
+                            </small>
+
+                        </div>
+
+
+                        →
+
+
+
+                        <div class="flow-node">
+
+                            📡
+
+                            <b>
+                                Sensors
+                            </b>
+
+                            <small>
+                                Measure
+                            </small>
+
+                        </div>
+
+
+                        →
+
+
+                        <div class="flow-node">
+
+                            🧠
+
+                            <b>
+                                ESP32
+                            </b>
+
+                            <small>
+                                Process
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================= -->
+        <!-- SENSOR SECTION -->
+        <!-- ============================= -->
+
+        <section id="sensors" class="section">
+
+            <div class="section-head">
+
+                <div>
+
+                    <span class="eyebrow">
+                        02 • IOT TELEMETRY
+                    </span>
+
+                    <h2>
+                        Sensor Monitoring
+                    </h2>
+
+                </div>
+
+                <span class="hardware-badge">
+                    ESP32 CONNECTED
+                </span>
+
+            </div>
+
+
+            <div class="sensor-grid">
+
+
+                <article class="sensor-card">
+
+                    <div class="sensor-icon">
+                        ⚡
+                    </div>
+
+                    <span>
+                        Voltage Sensor
+                    </span>
+
+                    <strong id="voltage">
+                        18.6 V
+                    </strong>
+
+                    <small>
+                        Measures solar panel voltage
+                    </small>
+
+                </article>
+
+
+
+                <article class="sensor-card">
+
+                    <div class="sensor-icon">
+                        🔌
+                    </div>
+
+                    <span>
+                        Current Sensor
+                    </span>
+
+                    <strong id="current">
+                        1.65 A
+                    </strong>
+
+                    <small>
+                        Measures flowing current
+                    </small>
+
+                </article>
+
+
+
+                <article class="sensor-card">
+
+                    <div class="sensor-icon">
+                        🌡️
+                    </div>
+
+                    <span>
+                        Temperature Sensor
+                    </span>
+
+                    <strong id="temperature">
+                        31.5 °C
+                    </strong>
+
+                    <small>
+                        Monitors system temperature
+                    </small>
+
+                </article>
+
+
+
+                <article class="sensor-card highlight">
+
+                    <div class="sensor-icon">
+                        ⚙️
+                    </div>
+
+                    <span>
+                        Calculated Power
+                    </span>
+
+                    <strong id="sensorPower">
+                        30.7 W
+                    </strong>
+
+                    <small>
+                        Power = Voltage × Current
+                    </small>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- SENSOR PHOTOS -->
+
+            <div class="photo-row">
+
+
+                <div class="photo-card">
+
+                    <img
+                        src="images/esp32-sensors.png"
+                        alt="ESP32 Sensors"
+                    >
+
+                    <div>
+
+                        <b>
+                            ESP32 + Sensors
+                        </b>
+
+                        <small>
+                            Add your real hardware photo here.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="photo-card">
+
+                    <img
+                        src="images/battery-system.png"
+                        alt="Battery System"
+                    >
+
+                    <div>
+
+                        <b>
+                            Battery System
+                        </b>
+
+                        <small>
+                            Add battery/charge-controller photo.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="photo-card">
+
+                    <img
+                        src="images/solar-installation.png"
+                        alt="Solar Installation"
+                    >
+
+                    <div>
+
+                        <b>
+                            Solar Installation
+                        </b>
+
+                        <small>
+                            Add actual installation photo.
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================= -->
+        <!-- DEVICES -->
+        <!-- ============================= -->
+
+        <section id="devices" class="section">
+
+            <span class="eyebrow">
+                03 • LOAD MANAGEMENT
+            </span>
+
+            <h2>
+                Connected Home Devices
+            </h2>
+
+
+            <div class="device-grid">
+
+
+                <article class="device">
+
+                    <span>💡</span>
+
+                    <div>
+
+                        <b>
+                            LED Lights
+                        </b>
+
+                        <small>
+                            40–60 W
+                        </small>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input type="checkbox"
+                               checked>
+
+                        <i></i>
+
+                    </label>
+
+                </article>
+
+
+
+                <article class="device">
+
+                    <span>🔌</span>
+
+                    <div>
+
+                        <b>
+                            Phone / USB
+                        </b>
+
+                        <small>
+                            15–30 W
+                        </small>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input type="checkbox"
+                               checked>
+
+                        <i></i>
+
+                    </label>
+
+                </article>
+
+
+
+                <article class="device">
+
+                    <span>📺</span>
+
+                    <div>
+
+                        <b>
+                            LED TV
+                        </b>
+
+                        <small>
+                            60–100 W
+                        </small>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input type="checkbox"
+                               checked>
+
+                        <i></i>
+
+                    </label>
+
+                </article>
+
+
+
+                <article class="device">
+
+                    <span>📶</span>
+
+                    <div>
+
+                        <b>
+                            Router + Modem
+                        </b>
+
+                        <small>
+                            15–25 W
+                        </small>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input type="checkbox"
+                               checked>
+
+                        <i></i>
+
+                    </label>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- CALCULATOR -->
+
+            <div class="calculator card">
+
+                <div>
+
+                    <span class="eyebrow">
+                        ENERGY CALCULATOR
+                    </span>
+
+                    <h3>
+                        Daily Energy Consumption
+                    </h3>
+
+                </div>
+
+
+                <div class="calc-inputs">
+
+                    <input
+                        id="watts"
+                        type="number"
+                        value="100"
+                        placeholder="Watts">
+
+                    <input
+                        id="hours"
+                        type="number"
+                        value="4"
+                        placeholder="Hours">
+
+                    <button
+                        class="btn primary"
+                        id="calcBtn">
+
+                        Calculate
+
+                    </button>
+
+                </div>
+
+
+                <div class="calc-result">
+
+                    <b id="calcResult">
+                        400 Wh/day
+                    </b>
+
+                    <small>
+                        Estimated daily energy
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================= -->
+        <!-- API SECTION -->
+        <!-- ============================= -->
+
+        <section id="api" class="section">
+
+            <span class="eyebrow">
+                04 • API & JAVASCRIPT
+            </span>
+
+            <h2>
+                Smart Information Center
+            </h2>
+
+
+            <div class="api-grid">
+
+
+                <article class="card api-card">
+
+                    <span class="api-icon">
+                        🌤️
+                    </span>
+
+                    <h3>
+                        Weather API
+                    </h3>
+
+                    <p>
+                        Get weather information using
+                        fetch(), Promise and async/await.
+                    </p>
+
+
+                    <div class="search-line">
+
+                        <input
+                            id="cityInput"
+                            placeholder="Enter city">
+
+                        <button id="weatherBtn">
+                            Get Weather
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="weatherResult"
+                        class="result-box">
+
+                        Weather result will appear here.
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card api-card">
+
+                    <span class="api-icon">
+                        🔎
+                    </span>
+
+                    <h3>
+                        Project Search
+                    </h3>
+
+                    <div class="search-line">
+
+                        <input
+                            id="siteSearch"
+                            placeholder="Search project">
+
+                        <button id="searchBtn">
+                            Search
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="searchResult"
+                        class="result-box">
+
+                        Search result
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================= -->
+        <!-- PRESENT FUTURE -->
+        <!-- ============================= -->
+
+        <section id="future" class="section">
+
+            <span class="eyebrow">
+                05 • ROADMAP
+            </span>
+
+            <h2>
+                Present → Future
+            </h2>
+
+
+            <div class="roadmap">
+
+
+                <article class="road">
+
+                    <span>
+                        PRESENT
+                    </span>
+
+                    <h3>
+                        Current Prototype
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            ESP32
+                        </li>
+
+                        <li>
+                            Voltage sensor
+                        </li>
+
+                        <li>
+                            Current sensor
+                        </li>
+
+                        <li>
+                            Temperature sensor
+                        </li>
+
+                        <li>
+                            Web dashboard
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <div class="road-arrow">
+                    →
+                </div>
+
+
+                <article class="road future">
+
+                    <span>
+                        FUTURE
+                    </span>
+
+                    <h3>
+                        Smart Solar Ecosystem
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Cloud database
+                        </li>
+
+                        <li>
+                            AI energy prediction
+                        </li>
+
+                        <li>
+                            Automatic load control
+                        </li>
+
+                        <li>
+                            Mobile application
+                        </li>
+
+                        <li>
+                            Smart alerts
+                        </li>
+
+                    </ul>
+
+                </article>
+
+            </div>
+
+
+            <div class="architecture card">
+
+                <h3>
+                    Future Architecture
+                </h3>
+
+                <p>
+
+                    Solar Panel →
+
+                    Sensors →
+
+                    ESP32 →
+
+                    Wi-Fi →
+
+                    Cloud/API →
+
+                    Dashboard →
+
+                    AI →
+
+                    Automation
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================= -->
+        <!-- TECHNOLOGY -->
+        <!-- ============================= -->
+
+        <section class="section">
+
+            <span class="eyebrow">
+                06 • TECHNOLOGY
+            </span>
+
+            <h2>
+                Technology Stack
+            </h2>
+
+
+            <div class="tech-grid">
+
+                <div>
+                    🌐
+                    <b>HTML5</b>
+                    <small>Structure</small>
+                </div>
+
+                <div>
+                    🎨
+                    <b>CSS3</b>
+                    <small>Design</small>
+                </div>
+
+                <div>
+                    ⚡
+                    <b>JavaScript</b>
+                    <small>Logic</small>
+                </div>
+
+                <div>
+                    📡
+                    <b>ESP32</b>
+                    <small>IoT</small>
+                </div>
+
+                <div>
+                    🔗
+                    <b>REST API</b>
+                    <small>Data</small>
+                </div>
+
+                <div>
+                    ☁️
+                    <b>Cloud</b>
+                    <small>Future</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================= -->
+        <!-- CONCLUSION -->
+        <!-- ============================= -->
+
+        <section class="section">
+
+            <div class="conclusion-box">
+
+                <span class="eyebrow">
+                    07 • CONCLUSION
+                </span>
+
+                <h2>
+                    Powering a Smarter,
+                    Cleaner Future.
+                </h2>
+
+                <p>
+
+                    Solar Smart Hub 2.0 connects
+                    renewable energy, IoT sensors
+                    and a modern web dashboard
+                    into one future-ready system.
+
+                </p>
+
+
+                <img
+                    src="images/solar-installation.png"
+                    alt="Solar Installation">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ============================= -->
+    <!-- CHATBOT -->
+    <!-- ============================= -->
+
+    <button
+        class="chat-toggle"
+        id="chatToggle">
+
+        💬
+
+    </button>
+
+
+    <div
+        class="chat-box"
+        id="chatBox">
+
+        <div class="chat-head">
+
+            🤖 Solar Assistant
+
+            <button id="chatClose">
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            class="chat-messages"
+            id="chatMessages">
+
+            <div class="bot">
+
+                Hello!
+                Ask me about solar,
+                sensors, battery or ESP32.
+
+            </div>
+
+        </div>
+
+
+        <div class="chat-input">
+
+            <input
+                id="chatInput"
+                placeholder="Ask something...">
+
+            <button id="chatSend">
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- VOICE -->
+
+    <button
+        class="voice-btn"
+        id="voiceBtn">
+
+        🎙️
+
+    </button>
+
+
+    <div
+        class="toast"
+        id="toast">
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
